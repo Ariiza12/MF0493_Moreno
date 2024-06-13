@@ -1,5 +1,7 @@
 package ppal;
 
+
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -16,7 +18,7 @@ public class MostrarEditoriales {
 		System.out.println("Conectando a la base de datos...");
 		
 		// Paso 1. Obtener la conexión
-		Connection con = conexion.getConexion();
+		Connection con = conexion.getConexion(); // conexion correcta
 		
 		// Objetos necesarios para hacer una consulta
 		Statement sentencia = null;
@@ -29,12 +31,13 @@ public class MostrarEditoriales {
 			sentencia = con.createStatement();
 			
 			// Paso 3. Ejecutar la sentencia
-			resultado=sentencia.executeQuery("select * from editoriales");
+			resultado=sentencia.executeQuery("select * from editoriales"); // consulta correcta
 			
 			System.out.println("Cod. Editorial\t\tNombre\t\tAño");
 			
 			// Paso 4.  Recoger el resultado
 			while(resultado.next()) {
+				// datos recogidos correctamente
 				int codEditorial = resultado.getInt("codEditorial");
 				String nombre = resultado.getString("nombre");
 				int anio = resultado.getInt("anio");
@@ -54,6 +57,7 @@ public class MostrarEditoriales {
 		
 		// Liberamos la conexión
 		conexion.desconectar();
+		// proyecto subido a GitHub correctamente
 	}
 
 }
